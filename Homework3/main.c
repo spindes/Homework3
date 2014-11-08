@@ -23,6 +23,9 @@ int FindTheSum (int a, int b, int c);//Объявление функции №10
 int PositiveSum (int a, int b, int c); //Объявление функции №11, которая по заданным 3м числам определяет, является ли сумма каких либо двух из них положительной
 float SwimResults (float John, float Peter, float Brian); //Объявление функции №12, отображение лучшего результата спортсмена
 int CheckEven (int a); //Объявление №13, проверка заданного числа на четность
+float TrianglesPerimeter (float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, float x5, float y5, float x6, float y6); //Объявление функции №14, вычисление суммы периметров треугольника
+int LeapYear (int a); //Обявление функции, которая проверяет високосный ли год
+
 
 
 
@@ -127,6 +130,16 @@ int main ()
     CheckEven (4);
     CheckEven (11);
     
+    //Вызов функции №14 TrianglesPerimeter;
+    TrianglesPerimeter (0, 1, 3, 1, 4, 2, 6, 7, 4, 3, 3, 8);
+    
+    //Вызов функции №15 LeapYear;
+    LeapYear (2014);
+    LeapYear (2015);
+    LeapYear (2016);
+    LeapYear (2017);
+    LeapYear (2018);
+    LeapYear (2000);
     
     return 0;
     
@@ -446,4 +459,49 @@ else
     printf("Заданное число не четное.\n");
     return 0;
     }
+
+//Реализация функции №14 TrianglesPerimeter
+float TrianglesPerimeter (float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, float x5, float y5, float x6, float y6) {
+   
+    float result1 = Distance(x1, y1, x2, y2);
+    float result2 = Distance(x2, y2, x3, y3);
+    float result3 = Distance(x3, y3, x1, y1);
+    float Perimeter1 = (result1+result2+result3);
+    
+    float result4 = Distance(x4, y4, x5, y5);
+    float result5 = Distance(x5, y5, x6, y6);
+    float result6 = Distance(x6, y6, x4, y4);
+    float Perimeter2 = (result4+result5+result6);
+    
+    printf("Сумма периметров двух треугольников равна %f.\n", Perimeter1+Perimeter2);
+    
+                     return 0;
+}
+//Реализация функции №15 LeapYear
+int LeapYear (int a) {
+//int num = a%4;
+//        
+//    if (num !=0) {
+//        printf("Год обычный.\n");}
+//    else num=a%100;
+//    if (num !=0) {
+//        printf("Год високосный.\n");}
+//    else num=a%400;
+//    if (num !=0) {
+//        printf("Год не високосный.\n");}
+//        else
+//            printf("Год високосный.\n");
+
+    if (a%4 !=0) {
+        printf("Год обычный.\n");}
+    else if (a%100 !=0) {
+        printf("Год високосный.\n");}
+    else if (a%400 !=0) {
+        printf("Год не високосный.\n");}
+    else
+        printf("Год високосный.\n");
+
+        return 0;
+}
+    
 
